@@ -33,6 +33,28 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('auth.validate', function() {
+    $rules = array(
+        'email' => 'required|email',
+        'password' => 'required'
+    );
+
+    $validator = Validator::make(Input::all(), $rules);
+
+    if ($validator->fails()) {
+        $messages = $validator->messages();
+        if (!$messages->has('email')) {
+            Input::flashOnly('email');
+        }
+
+        if (!$messages->has('password')) {
+            Input::flashOnly('password');
+        }
+
+        return Redirect::route('login')->withErrors($validator);
+    }
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())
@@ -87,4 +109,10 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+Route::filter('permission', function() {
+    if (!(Auth::check() && Auth::user()->role >= User::ROLE_HR)) {
+        return Redirect::guest('login');
+    }
 });

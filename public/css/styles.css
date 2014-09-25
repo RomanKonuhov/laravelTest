@@ -1,0 +1,141 @@
+body {
+    font: 14px normal  Arial, Tahoma;
+}
+
+.header {
+    overflow: hidden;
+    padding: 5px;
+}
+
+.content {
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    radius: 5px;
+    width: 860px;
+    padding: 20px;
+}
+
+.content .job .description {
+    overflow: hidden;
+}
+
+.content .job.pending {
+    background: yellow;
+}
+
+.content .job.declined {
+    background: red;
+}
+
+.action.edit,
+.action.delete {
+    float: right;
+    margin: 2px;
+}
+
+.actions {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.actions input[type="submit"],
+.actions a {
+    float: left;
+    margin-left: 15px;
+}
+
+.actions input[type="submit"]:first-child,
+.actions a:first-child {
+    margin-left: 0px;
+}
+
+.home.actions {
+    margin: 0;
+}
+
+.home.actions input[type="submit"] {
+    margin-left: 15px;
+}
+
+.home.actions input[type="submit"].view-jobs {
+    margin-left: 0px;
+}
+
+.gohome {
+    float: left;
+}
+
+.splitter {
+    height: 1px;
+    width: 100%;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    margin: 15px 0 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0  ;
+    overflow: hidden;
+}
+
+ul.create {
+    width: 500px;
+}
+
+form.auth {
+    width: 300px;
+    margin: 0 auto;
+}
+
+form.auth .actions {
+    text-align: center;
+}
+
+form.auth .actions input[type="submit"] {
+    float: none;
+}
+
+ul li {
+    padding: 10px 0;
+    clear: both;
+}
+
+ul li label {
+    float: left;
+}
+
+ul li input,
+ul li select,
+ul li textarea {
+    float: right;
+}
+
+table.users th {
+    background: #ccc;
+}
+
+table.users td {
+    min-width: 180px;
+    padding: 2px 10px;
+}
+
+.errors {
+    border: 1px solid #999;
+    background: rgb(253, 122, 122);
+}
+
+.errors p {
+    font-size: 11px;
+    line-height: normal;
+    margin: 5px;
+    padding: 0;
+}
+
+.user {
+    font: bold 13px 'Trebuchet MS';
+    float: right;
+}

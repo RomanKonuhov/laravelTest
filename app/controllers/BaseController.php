@@ -1,6 +1,12 @@
 <?php
 
-class BaseController extends Controller {
+class BaseController extends Controller
+{
+    public function __construct()
+    {
+        $this->beforeFilter('auth', array('except' => array('getLogin', 'login')));
+    }
+
 
 	/**
 	 * Setup the layout used by the controller.
@@ -14,5 +20,6 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
+
 
 }

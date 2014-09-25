@@ -11,9 +11,10 @@
 			"app/commands",
 			"app/controllers",
 			"app/models",
-			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php"
+            "app/database/migrations",
+            "app/database/seeds",
+            "app/viewComposers",
+            "app/tests/TestCase.php"
 		]
 	},
 	"scripts": {
