@@ -56,7 +56,9 @@ class JobController extends \BaseController
 	 */
 	public function store()
 	{
-        $this->_validate();
+        if (!$this->_validate($validator)) {
+            return Redirect::route('job.create')->withErrors($validator);
+        }
 
         $inputData = Input::all();
 
@@ -112,7 +114,9 @@ class JobController extends \BaseController
 	 */
 	public function update(Job $job)
 	{
-        $this->_validate();
+        if (!$this->_validate($validator)) {
+            return Redirect::route('job.edit', $job->id)->withErrors($validator);
+        }
 
         $inputData = Input::all();
 
@@ -187,9 +191,10 @@ class JobController extends \BaseController
     /**
      * Validate before create/update
      *
+     * @param Validator|null $validator
      * @return mixed
      */
-    protected function _validate()
+    protected function _validate(&$validator)
     {
         $inputData = Input::all();
         $rules = array(
@@ -208,7 +213,9 @@ class JobController extends \BaseController
             }
             call_user_func_array(array('Input', 'flashOnly'), $arrayForFlash);
 
-            return Redirect::route('job.create')->withErrors($validator);
+            return false;
         }
+
+        return true;
     }
 }
